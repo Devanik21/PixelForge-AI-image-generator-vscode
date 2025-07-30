@@ -28,7 +28,7 @@
 
 <div align="center">
 
-![PixelForge Demo](https://via.placeholder.com/800x400/667eea/ffffff?text=PixelForge+Demo+GIF)
+
 
 *Generate stunning AI images with just a few clicks*
 
