@@ -1,0 +1,73 @@
+{
+  "name": "pixelforge",
+  "displayName": "PixelForge - AI Image Generator",
+  "description": "Generate images from text using Gemini AI",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onView:pixelforge.imageView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pixelforge",
+          "title": "PixelForge",
+          "icon": "resources/logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "pixelforge": [
+        {
+          "id": "pixelforge.imageView",
+          "name": "AI Image Generator",
+          "when": "true"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pixelforge.generateImage",
+        "title": "Generate Image",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "pixelforge.setApiKey",
+        "title": "Set Gemini API Key",
+        "icon": "$(key)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "pixelforge.generateImage",
+          "when": "view == pixelforge.imageView",
+          "group": "navigation"
+        },
+        {
+          "command": "pixelforge.setApiKey",
+          "when": "view == pixelforge.imageView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
